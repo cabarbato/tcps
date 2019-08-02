@@ -55,7 +55,6 @@ h2.ui.header {
 main {
     width: 100%;
     min-height: 100vh;
-    /* max-width: 992px; */
     margin: 0 auto;
     padding: 0;
     box-shadow: 0 0 5px rgba(0, 0, 0, .25);
@@ -83,16 +82,23 @@ header {
     z-index: 0;
 }
 
-#headerImg {
+#slideshow, .slide {
     z-index: 1;
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
-    background: url('../images/header/sample1.jpg');
+}
+
+.slide {
     background-size: cover;
     background-position: center;
+    opacity: 0;
+    transition: 1500ms;
+}
+
+.slide.show {
     opacity: .6;
 }
 
@@ -115,8 +121,20 @@ header h1.ui.header {
     border: none;
 }
 
+nav a {
+    background-color: none;
+    border: none;
+    border: 2px solid transparent;
+}
+
+nav a, nav a.active {
+    transition: 200ms !important;
+    font-family: 'Work Sans';
+    font-weight: 400;
+}
+
 article {
-    padding: 30px 20px;
+    padding: 60px 20px;
     flex: 1 0 auto;
 }
 
@@ -127,21 +145,44 @@ section {
 footer {
     width: 100%;
     margin: 0 auto !important;
-    padding: 30px;
+    padding: 30px 30px 20px;
     flex-shrink: 0;
     background-color: #322ca5;
 }
 
+#footerLogoContainer {
+    text-align: center;
+    padding: 40px;
+}
+
 footer .logo {
-    padding: 0 20px 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+footer .ui.form .field>label {
+    color: #FFF;
+}
+
+#contactSubmit {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+}
+
+footer .btn {
+    display: inline-block;
+    margin: 0 !important;
+}
+
+#contactMessage {
+    color: #FFF;
+    display: inline-block;
+    margin: 0 15px;
 }
 
 fieldset {
     border: none;
     padding: 0;
-}
-
-#contactMessage {
-    min-height: 25px;
-    margin-bottom: 6px;
 }
